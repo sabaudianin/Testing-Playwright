@@ -1,0 +1,19 @@
+export const injectMainPage = async ({ page }, use) =>
+  await use(new Main(page));
+
+class Main {
+  constructor(page) {
+    this.page = page;
+  }
+
+  async visit() {
+    await this.page.goto("/");
+  }
+  async clickSignInButton() {
+    await this.page.getByRole("link", { name: "Sign in" }).click();
+  }
+  async veryfiAwatarName(name) {
+    const avatarLocator = this.page.getByRole("link", { name: name });
+    await expect(await avatarLocator).toBeVisible();
+  }
+}

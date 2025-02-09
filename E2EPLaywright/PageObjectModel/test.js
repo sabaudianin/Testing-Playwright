@@ -7,7 +7,7 @@ test("Login user without POM", async ({ page }) => {
 });
 
 //POM
-test("Login user with POM", async ({ page }) => {
+test("Login user with PageObjMod", async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.navigate();
